@@ -56,7 +56,7 @@ export function AddMovie() {
     // 1 Method - Post
     // 2 body  - data & JSON
     // 3 Headers- Json
-    fetch(`https://6166c57613aa1d00170a6776.mockapi.io/movies/`,
+    fetch(`https://node-movie-app-zen-class.herokuapp.com`,
     {
       method : "POST",
       body : JSON.stringify(newMovies),

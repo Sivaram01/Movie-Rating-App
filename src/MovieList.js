@@ -5,20 +5,21 @@ import { MovieFun } from './MovieFun';
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from 'react';
 
-
+// const API_URL = "https://6166c57613aa1d00170a6776.mockapi.io";
+const API_URL = "https://node-movie-app-zen-class.herokuapp.com";
 
 export function MovieList() {
   const [movies , setMovies] = useState([]) ;    
 
    const getMovies = () => {
-    fetch("https://6166c57613aa1d00170a6776.mockapi.io/movies")
+    fetch(`${API_URL}/movies`)
     .then((data)=> data.json())
     .then((mvs) => setMovies(mvs))
    }
   useEffect(getMovies, []);
 
   const deleteMovie = (id) =>{
-    fetch(`https://6166c57613aa1d00170a6776.mockapi.io/movies/${id}`,
+    fetch(`${API_URL}/movies/${id}`,
     {method : "DELETE"}).then(()=>getMovies())
   }
 

@@ -45,7 +45,7 @@ export function MovieFun({ name, poster, ratings, summary , id , editButton , de
          onClick={() => setShow(!show)}>
          {show ? <ExpandLessIcon /> : <ExpandMoreIcon /> }  
       </IconButton></h3>
-        <p className="ratings" style={styles}> <span>🌟</span>  {ratings}  </p>
+        <p className="ratings" style={styles}> <span className = "star">🌟</span>  {ratings}  </p>
       </div>
 
        {show ? <p style={styleSummary} className="summary">{summary}</p> : "" }
