@@ -32,7 +32,7 @@ export default function Movie() {
  const history = useHistory();
  const [mode , setMode] = useState("dark")
 
- const theme = createTheme({
+ const theme = createTheme({ // created use context
   palette: {
     mode: mode,
   },
@@ -41,8 +41,9 @@ export default function Movie() {
 
 
 return (
- 
-  <ThemeProvider theme={theme}>
+   
+    // create provider
+    <ThemeProvider theme={theme}>  
     <Paper elevation={4} style = {{borderRadius : "0px" , minHeight : "100vh"}}> 
   <div className="App">
        <AppBar style ={{marginBottom : "24px"}} position="static">
@@ -53,6 +54,7 @@ return (
         <Button onClick = {()=> history.push("/color-game")} variant="text" color = "inherit">Color Game</Button>
         <Button onClick = {()=> history.push("/tic-tac-toe")} variant="text" color = "inherit">TicTackToe Game</Button>
         <Button onClick = {()=> history.push("/form")} variant="text" color = "inherit">Basic Form</Button>
+         {/* used context in icon-button to change the theme of app without using prop drilling */}
         <Button startIcon= {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
          onClick = {()=> setMode(mode==="light" ? "dark" : "light")} variant="text" color = "inherit" style = {{marginLeft : "auto"}}> {mode === "light" ? "dark" :"light"} mode </Button>
       </Toolbar>
@@ -96,5 +98,3 @@ return (
 
 );
 }
-
-
